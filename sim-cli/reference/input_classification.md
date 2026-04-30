@@ -43,8 +43,11 @@ These affect runtime / performance / convenience only, not what the
 simulation physically represents:
 
 - `--processors N` (parallelism)
-- `--ui-mode gui | headless`
+- `--ui-mode gui | no_gui`
 - `--mode meshing | solver` when only one makes sense for the task
+- `--workspace PATH` (run directory / artifact location)
+- `--driver-option KEY=VALUE` when the driver skill classifies the key
+  as operational rather than physical
 - Smoke-test iteration counts (e.g. "run 10 iters to check setup")
 - Output verbosity, log locations
 

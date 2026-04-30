@@ -17,15 +17,16 @@ CONNECT → STEP-0 VERSION PROBE → [STEP × N] → DISCONNECT
 ```
 
 - One session per task. Do not reuse a session across unrelated tasks.
-- Connect with the correct driver-specific flags (mode, ui-mode,
-  processors). Mode cannot change mid-session.
+- Connect with the correct core launch flags (`mode`, `ui-mode`,
+  `processors`, `workspace`) and any plugin-owned `--driver-option`
+  values documented by the driver skill. Mode cannot change mid-session.
 - Always disconnect explicitly, even if steps failed.
 
 ## Pattern 1 — Connect + verify
 
 **When**: at the start of every task.
 
-1. Run `sim connect --solver <solver> [driver-specific flags]`.
+1. Run `sim connect --solver <solver> [core launch flags] [--driver-option KEY=VALUE]...`.
 2. Check exit code = 0.
 3. Run `sim inspect session.summary`. Verify `connected=true`,
    `mode=<expected>`, `run_count=0`.

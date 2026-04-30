@@ -46,19 +46,23 @@ Starts the HTTP server. Usually launched once per host; `sim connect`
 on a local host auto-starts a server if none is running. Run manually
 for remote boxes.
 
-### `sim connect --solver <solver> [--mode MODE] [--ui-mode UI] [--processors N]`
+### `sim connect --solver <solver> [--mode MODE] [--ui-mode UI] [--processors N] [--workspace PATH] [--driver-option KEY=VALUE]...`
 
 Launches the solver inside the server and holds a session open.
-Solver-specific flags:
+Core launch flags:
 
 | Flag | Drivers that use it |
 |---|---|
 | `--mode <mode>` | drivers with multiple runtime modes |
-| `--ui-mode gui \| headless` | GUI-capable drivers |
+| `--ui-mode gui \| no_gui` | GUI-capable drivers |
 | `--processors N` | any MPI-capable solver |
+| `--workspace PATH` | drivers with a run/work directory concept |
+| `--driver-option KEY=VALUE` | generic plugin-owned launch option passthrough; repeat as needed |
 
-The driver skill documents which flags its driver accepts and what the
-defaults mean.
+`--driver-option` is intentionally opaque to sim-cli. The driver skill
+documents which keys its driver accepts, what the defaults mean, and how
+the plugin validates or translates them. Keep solver-specific launch
+settings here instead of inventing new top-level sim-cli flags.
 
 ### `sim exec [<code>] [--file PATH] [--label LABEL]`
 
