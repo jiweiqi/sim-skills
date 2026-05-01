@@ -81,6 +81,8 @@ its window-not-found troubleshooting.
 | [`reference/acceptance.md`](reference/acceptance.md) | At the end of every task — outcome-based evaluation. `exit_code == 0` alone is **not** acceptance. |
 | [`reference/escalation.md`](reference/escalation.md) | When something goes wrong — what to stop on, what to report. Do not silently retry. |
 
+When sim-cli is one valid path but not the only path, use [`reference/tool_choice.md`](reference/tool_choice.md) to choose between live `sim ...` commands and file-side Python/vendor-SDK recipes.
+
 ---
 
 ## Hard constraints (apply to every sim-cli session)

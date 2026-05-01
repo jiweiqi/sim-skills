@@ -72,6 +72,9 @@ After the final step (persistent) or the single `sim run` return
    ERROR lines.
 2. Extract the numeric value(s) the criterion needs — via
    `sim inspect last.result` or `parse_output(stdout)`.
+   The acceptance check itself can be a python computation against output
+   files, a sim inspect query against the live session, or a vendor-script
+   invoked via sim run — pick whichever is closest to where the data lives.
 3. Compare against the criterion. Record the comparison explicitly in
    the final report: "`T_max = 82.3 °C` — criterion `< 85 °C` ✅".
 4. If any criterion fails — task is **INCOMPLETE**. Report which
