@@ -109,6 +109,17 @@ When sim-cli is one valid path but not the only path, use [`reference/tool_choic
    `.../examples/` directory describe a specific published test case.
    You may offer them as examples, but must wait for explicit
    confirmation before adopting them.
+6. **Prefer uv for file-side Python helpers when available.** `sim` is
+   a CLI and can be invoked directly when installed. Do not wrap `sim`
+   in `uv run` unless you are intentionally using a source checkout or
+   project-local environment. For ordinary host/file-side Python helpers
+   used across solvers — plotting with matplotlib, CSV/JSON parsing,
+   report generation, lightweight acceptance calculations — prefer
+   `uv run python ...` or `uv run --with <pkg> python ...` when uv is
+   available because it makes dependencies explicit. If uv is unavailable
+   or the user has provided a specific Python environment, use the user's
+   environment. Vendor-embedded Python paths remain solver-specific and
+   should be run through the driver skill's documented `sim` workflow.
 
 ---
 

@@ -9,7 +9,7 @@ Keep both paths visible when both are valid. Pick the one that matches the state
 | Mode | Pick when | Recipe |
 |---|---|---|
 | Live | The solve is in progress or an Abaqus session is already open. | `sim inspect job.diagnostics` |
-| Post-mortem | The job finished and `job.sta` is on disk. | `python -c "from pathlib import Path; print(Path('job.sta').read_text(errors='replace'))"` |
+| Post-mortem | The job finished and `job.sta` is on disk. | Prefer `uv run python -c "from pathlib import Path; print(Path('job.sta').read_text(errors='replace'))"` when uv is available; otherwise use the user's Python environment. |
 
 ## Example 2: read a Mechanical `.rst`
 
