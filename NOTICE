@@ -3,8 +3,8 @@ Copyright 2026 sim contributors
 
 This product is licensed under the Apache License, Version 2.0 (see LICENSE).
 
-sim-skills contains shared agent-facing protocols for the sim runtime. Solver
-and tool-specific skills are expected to live with their corresponding plugin
+sim-skills is an archived repository. Shared runtime skills now live in
+sim-cli, and solver-specific skills live with their corresponding plugin
 packages. Plugins may depend on third-party software, services, SDKs, or local
 executables that are not bundled with this repository.
 
